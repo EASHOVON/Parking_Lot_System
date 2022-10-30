@@ -54,3 +54,38 @@ class Garage:
         else:
             print(f"Total Bill = ${hours*5}")   
 
+    def total_cars_in_garage(self):
+        for i in self.car_infos.items():
+            print(i)
+
+
+my_garage = Garage()
+
+print("****************WELCOME TO OUR PARKING SYSTEM**************")
+
+while True:
+    print("What do you want ? ")
+    print("1. Park your Car \n2. Check Available Space \n3. Unpark Your Car \n4. Total Cars in Garage")
+    user_choice = int(input("Enter you choice : "))
+    if user_choice == 1:
+        car_license = input("Enter your car license : ")
+        car_model = input("Enter your car model : ")
+        car_color = input("Enter your car color : ")
+        user_car = Car(car_license, car_model, car_color) # Car class object
+        my_garage.add_car_to_garage(user_car)
+        print()
+    elif user_choice == 2:
+        print(my_garage.spots_available())
+        print()
+    elif user_choice == 3:
+        ticket = input("Enter your ticket number : ")
+        hours  = int(input("Enter hours : "))
+        if my_garage.spot == 10:
+            continue
+        else:
+            my_garage.unpark(ticket, hours)
+        print()
+    elif user_choice == 4:
+        my_garage.total_cars_in_garage()
+    else:
+        break
