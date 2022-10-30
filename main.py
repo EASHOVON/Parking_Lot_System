@@ -33,3 +33,24 @@ class Garage:
         else:
             print("NO SPOTS AVAILABLE!!!!!!")
 
+    def unpark(self,ticket,hours):
+        if ticket not in self.car_infos['Tickets']:
+            print("NO CAR FOUND!!!!!")
+            return
+        else:
+            for i,val in enumerate(self.car_infos['Tickets']):
+                if val == ticket:
+                    print(i)
+                    print(f"YOUR LICENSE IS {self.car_infos['License'][i]}")
+                    print(f"YOUR MODEL IS {self.car_infos['Model'][i]}")
+                    print(f"YOUR COLOR IS {self.car_infos['Color'][i]}")
+                    self.car_infos['License'].pop(i)
+                    self.car_infos['Model'].pop(i)
+                    self.car_infos['Color'].pop(i)
+                    self.car_infos['Tickets'].pop(i)
+                    self.spot += 1
+        if hours > 30:
+            print(f"Total Bill = ${hours*5 + 100}")
+        else:
+            print(f"Total Bill = ${hours*5}")   
+
