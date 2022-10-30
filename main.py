@@ -12,7 +12,7 @@ class Garage:
         self.spot = 10
         self.car_infos = {}
 
-    def spot_available(self):
+    def spots_available(self):
         return f"Total Spots Available {self.spot}"
 
     def add_car_to_garage(self,car):
